@@ -96,22 +96,22 @@ function convertStrToInt(stringData){
 
 var p1 = new Promise((resolve, reject)=>{
     setTimeout(function(){
-        console.log('p1 resolved')
+        // console.log('p1 resolved')
         resolve('p1 resolved');
     },1000)
 })
 
 var p2 = new Promise((resolve, reject)=>{
     setTimeout(function(){
-        console.log('p2 resolved')
+        // console.log('p2 resolved')
         resolve('p2 resolved');
     },1000)
 })
 
 var p3 = new Promise((resolve, reject)=>{
     setTimeout(function(){
-        console.log('p3 resolved')
-        console.log('promise resolved')
+        // console.log('p3 resolved')
+        // console.log('promise resolved')
         resolve('p3 resolved');
     },3000)
 })
@@ -148,3 +148,90 @@ var p3 = new Promise((resolve, reject)=>{
 // add event keyup to text field
 filterElem.addEventListener('keyup' , searchStudent)
 
+class Vehicle{
+    display(){
+        console.log(`Vehicle ${this.name} and its Color is ${this.color}`)
+    }
+    getVehicle(){
+        return this.name;
+    }
+    getColor(){
+        return this.color;
+    }
+}
+
+class TwoWheeler extends Vehicle{
+    constructor(name, color){   
+        super()            
+        this.name = name;
+        this.color = color;
+    }
+}
+
+class FourWheeler extends Vehicle{
+    constructor(name, color){   
+        super()            
+        this.name = name;
+        this.color = color;
+    }
+}
+
+class ThreeWheeler extends Vehicle{
+    constructor(name, color){   
+        super()            
+        this.name = name;
+        this.color = color;
+    }
+}
+
+// var vehicle = new ThreeWheeler('Auto' , 'red');
+// vehicle.display()
+// var proto = Object.getPrototypeOf(vehicle); 
+// console.log(proto)
+// class Person{
+//     constructor(){
+//         console.log('object created')
+//     }
+
+//     hello(){
+//         console.log('hello')
+//     }
+// }
+
+// Person.prototype.display = function(){
+//     console.log('hi')
+// }
+
+
+// inheritance using prototype
+function Person(name) {
+    this.FirstName = name || "unknown";
+};
+
+Person.prototype.getFullName = function () {
+    return this.FirstName + ' School: '+ this.SchoolName;
+}
+
+
+function User(name, schoolName, grade){
+    Person.call(this, name);
+    this.SchoolName = schoolName || "unknown";
+    this.Grade = grade || 0;
+} 
+
+User.prototype = new Person();
+User.prototype.data = 'nothing'
+// User.prototype.constructor = User;
+
+
+var std = new User("James Bond", "XYZ", 10);
+            
+// console.log(std.getFullName()); // James Bond
+// console.log(std.data)
+// console.log(std instanceof User); // true
+// console.log(std instanceof Person); // true
+
+
+// var ram = new Person()
+// ram.display()
+// ram.hello()
